@@ -1,4 +1,4 @@
-package com.bank.greenway.models;
+package com.bank.greenway.entity;
 
 import java.util.Set;
 

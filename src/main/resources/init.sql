@@ -1,5 +1,5 @@
 CREATE TABLE Customer(
-    id          BIGSERIAL   PRIMARY KEY,
+    id          SERIAL   PRIMARY KEY,
     firstName   VARCHAR(50)    NOT NULL,
     lastName    VARCHAR(50)    NOT NULL,
     age         INTEGER     NOT NULL,
@@ -8,12 +8,12 @@ CREATE TABLE Customer(
 );
 
 CREATE TABLE Role(
-    id      BIGSERIAL   PRIMARY KEY,
+    id      SERIAL   PRIMARY KEY,
     name    VARCHAR(50)     NOT NULL
 );
 
 CREATE TABLE Account(
-    id      BIGSERIAL   PRIMARY KEY,
+    id      SERIAL   PRIMARY KEY,
     customer_id INTEGER,
     number  INTEGER     NOT NULL,
     balance INTEGER,

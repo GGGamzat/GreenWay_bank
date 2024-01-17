@@ -1,4 +1,4 @@
-package com.bank.greenway.models;
+package com.bank.greenway.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;

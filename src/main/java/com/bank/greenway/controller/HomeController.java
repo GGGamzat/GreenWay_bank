@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 
 @Controller
 public class HomeController {
-    @RequestMapping("/")
+    @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("title", "Главная страница");
         return "home";

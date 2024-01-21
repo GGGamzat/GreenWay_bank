@@ -1,0 +1,18 @@
+<div th:fragment="header" class="header_container">
+    <div class="header_nav">
+        <a href="/" class="logo-link"><img class="logo" th:src="@{/img/logo.svg}"></a>
+        <nav class="nav">
+            <ul class="menu">
+              <li><a href="#" class="nav-link">Частным лицам</a></li>
+              <li><a href="#" class="nav-link">Бизнесу</a></li>
+              <li><a href="#" class="nav-link">Ещё</a></li>
+            </ul>
+        </nav>
+        <div class="profile_block">
+            <a href="#" class="profile-link">username</a>
+            <a href="#" class="profile-link">
+                <img th:src="@{/img/default-avatar.svg}" class="avatar-mini">
+            </a>
+        </div>
+    </div>
+</div>

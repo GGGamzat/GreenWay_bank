@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости</title>
+    <link href="static/css/style.css" rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+</head>
+<body>
+    <div class="wrapper">
+        <header th:insert="blocks/header :: header" class="header"></header>
+
+        <main class="main">
+            <div class="main_container">
+                <h1>GreenWay Блог. Новости</h1>
+                <div class="card" th:each="article : ${articles}">
+                    <a class="a-detail" th:href="'/blog/articles/' + ${article.id}"><b><span th:text="${article.title}"></span></b></a>
+                </div>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

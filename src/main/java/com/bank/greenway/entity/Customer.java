@@ -10,9 +10,9 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String firstName;
+    private String firstname;
 
-    private String lastName;
+    private String lastname;
 
     private Integer age;
 
@@ -35,19 +35,19 @@ public class Customer {
     }
 
     public String getFirstName() {
-        return firstName;
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstName(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getLastName() {
-        return lastName;
+        return lastname;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setLastName(String lastname) {
+        this.lastname = lastname;
     }
 
     public Integer getAge() {
@@ -84,9 +84,9 @@ public class Customer {
 
     public Customer() {}
 
-    public Customer(String firstName, String lastName, Integer age, String email, Set<Account> accounts, Role role) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+    public Customer(String firstname, String lastname, Integer age, String email, Set<Account> accounts, Role role) {
+        this.firstname = firstname;
+        this.lastname = lastname;
         this.age = age;
         this.email = email;
         this.accounts = accounts;

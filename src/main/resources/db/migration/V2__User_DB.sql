@@ -12,6 +12,7 @@ CREATE TABLE Customer(
     lastname    VARCHAR(50)    NOT NULL,
     age         INTEGER     NOT NULL,
     email       VARCHAR(150)    NOT NULL,
+    password    VARCHAR(50)     NOT NULL,
     role_id     INTEGER,
     FOREIGN KEY (role_id) REFERENCES Role(id)
 );

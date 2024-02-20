@@ -19,6 +19,8 @@ public class Customer {
     @Column(nullable = false, unique = true)
     private String email;
 
+    private String password;
+
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
     private Set<Account> accounts;
 
@@ -66,6 +68,14 @@ public class Customer {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public Set<Account> getAccounts() {
         return accounts;
     }
@@ -84,11 +94,12 @@ public class Customer {
 
     public Customer() {}
 
-    public Customer(String firstname, String lastname, Integer age, String email, Set<Account> accounts, Role role) {
+    public Customer(String firstname, String lastname, Integer age, String email, String password, Set<Account> accounts, Role role) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
         this.email = email;
+        this.password = password;
         this.accounts = accounts;
         this.role = role;
     }

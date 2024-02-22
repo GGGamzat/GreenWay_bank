@@ -5,7 +5,8 @@ import java.util.Set;
 import jakarta.persistence.*;
 
 @Entity
-public class Customer {
+@Table(name = "usr")
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -21,7 +22,7 @@ public class Customer {
 
     private String password;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "customer")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private Set<Account> accounts;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
@@ -92,9 +93,9 @@ public class Customer {
         this.role = role;
     }
 
-    public Customer() {}
+    public User() {}
 
-    public Customer(String firstname, String lastname, Integer age, String email, String password, Set<Account> accounts, Role role) {
+    public User(String firstname, String lastname, Integer age, String email, String password, Set<Account> accounts, Role role) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;

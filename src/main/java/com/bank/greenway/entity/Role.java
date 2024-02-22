@@ -13,7 +13,7 @@ public class Role {
     private String name;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "role")
-    private Set<Customer> customers;
+    private Set<User> users;
 
     public String getName() {
         return name;
@@ -23,18 +23,18 @@ public class Role {
         this.name = name;
     }
 
-    public Set<Customer> getUsers() {
-        return customers;
+    public Set<User> getUsers() {
+        return users;
     }
 
-    public void setUsers(Set<Customer> customers) {
-        this.customers = customers;
+    public void setUsers(Set<User> users) {
+        this.users = users;
     }
 
     public Role() {}
 
-    public Role(String name, Set<Customer> customers) {
+    public Role(String name, Set<User> users) {
         this.name = name;
-        this.customers = customers;
+        this.users = users;
     }
 }

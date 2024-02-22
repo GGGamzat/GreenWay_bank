@@ -1,10 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hello, Spring</title>
 </head>
 <body>
-    <h1>Hello, Spring</h1>
+    <h1>Hello, <span th:remove="tag" authentication="name"></span>/h1>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sign Out">
+    </form>
 </body>
 </html>

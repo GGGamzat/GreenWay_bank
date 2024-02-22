@@ -25,8 +25,8 @@ public class Account {
     private Integer balance;
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(name = "customer_id", nullable = false)
-    private Customer customer;
+    @JoinColumn(name = "usr_id", nullable = false)
+    private User user;
 
     public Integer getNumber() {
         return number;
@@ -44,19 +44,19 @@ public class Account {
         this.balance = balance;
     }
 
-    public Customer getCustomer() {
-        return customer;
+    public User getCustomer() {
+        return user;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomer(User user) {
+        this.user = user;
     }
 
     public Account() {}
 
-    public Account(Integer number, Integer balance, Customer customer) {
+    public Account(Integer number, Integer balance, User user) {
         this.number = number;
         this.balance = balance;
-        this.customer = customer;
+        this.user = user;
     }
 }

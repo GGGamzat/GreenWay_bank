@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  app:
+    image: 'greenway:latest'
+    build:
+      context: .
+    container_name: app
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/greenway_bank_db
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=2222
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+          
+  db:
+    image: 'postgres:15.1-alpine'
+    container_name: db
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=greenway_bank_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=2222
+    volumes:
+      - ./containers_data/db_data:/var/lib/postgresql/data
+  
+  pgadmin4:
+    container_name: pgadmin4
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=gamzat@gmail.com
+      - PGADMIN_DEFAULT_PASSWORD=2222
+    ports:
+      - "5050:80"
+    volumes:
+      - ./containers_data/pgadmin_data:/var/lib/pgadmin
+
+  #sql:
+  #  init:
+  #    mode: always
+
+#volumes:
+#  local_pgdаta:
+#  pgadmin-dаta:

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Registration</title>
+</head>
+<body>
+<div th:if="${param.error}">
+    Some strange errors!
+</div>
+<h1>Registration page</h1>
+<form th:action="@{/registration}" method="post">
+    <div><label> User Name : <input type="text" name="username"/> </label></div>
+    <div><label> First Name : <input type="text" name="firstname"/> </label></div>
+    <div><label> Last Name : <input type="text" name="lastname"/> </label></div>
+    <div><label> Email : <input type="text" name="email"/> </label></div>
+    <div><label> Age : <input type="number" name="age"/> </label></div>
+    <div><label> Password: <input type="password" name="password"/> </label></div>
+    <div><input type="submit" value="Sign In"/></div>
+</form>
+</body>
+</html>

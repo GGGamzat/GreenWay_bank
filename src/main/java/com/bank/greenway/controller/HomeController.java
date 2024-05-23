@@ -6,15 +6,8 @@ import org.springframework.ui.Model;
 
 @Controller
 public class HomeController {
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("title", "Главная страница");
+    @GetMapping("/home")
+    public String home() {
         return "home";
-    }
-
-    @GetMapping("/hello")
-    public String hello(Model model) {
-        model.addAttribute("title", "hello");
-        return "hello";
     }
 }

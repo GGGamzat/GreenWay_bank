@@ -7,7 +7,6 @@ import com.bank.greenway.repository.ArticleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.stereotype.Controller;
@@ -28,7 +27,7 @@ public class BlogController {
     @GetMapping("/blog/articles/{id}")
     public String get_articleDetail(@PathVariable(value="id") Long id, Model model) {
         if(!articleRepository.existsById(id)) {
-            return "redirect:/";
+            return "redirect:/home";
         }
 
         Optional<Article> article = articleRepository.findById(id);
@@ -47,6 +46,6 @@ public class BlogController {
     public String create_article_post(@RequestParam String title, @RequestParam String text, Model model) {
         Article article = new Article(title, text);
         articleRepository.save(article);
-        return "redirect:/";
+        return "redirect:/home";
     }
 }

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        <input type="number" name="balance" placeholder="Баланс">
+
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
+        <button type="submit">Открыть счёт</button>
+    </form>
+</body>
+</html>

@@ -21,7 +21,6 @@ public class User implements UserDetails {
     private String lastname;
     private Integer age;
 
-//    @Column(nullable = false, unique = true)
     private String email;
     private String password;
     private String role;

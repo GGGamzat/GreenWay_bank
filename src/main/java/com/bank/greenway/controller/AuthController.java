@@ -1,17 +1,29 @@
 package com.bank.greenway.controller;
 
+import com.bank.greenway.entity.Account;
+import com.bank.greenway.entity.Article;
 import com.bank.greenway.entity.User;
+import com.bank.greenway.repository.UserRepository;
 import com.bank.greenway.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 public class AuthController {
 
     private UserService userService;
+    private UserRepository userRepository;
 
     @Autowired
     public AuthController(UserService userService) {
@@ -44,5 +56,17 @@ public class AuthController {
                 System.out.println("BAD");
         }
         return "redirect:/home";
+    }
+
+    @GetMapping("/profile")
+    public String profile(@AuthenticationPrincipal User user, Model model) {
+        model.addAttribute("username", user.getUsername());
+        model.addAttribute("firstname", user.getFirstName());
+        model.addAttribute("lastname", user.getLastName());
+        model.addAttribute("age", user.getAge());
+        model.addAttribute("email", user.getEmail());
+        model.addAttribute("role", user.getRole());
+
+        return "profile";
     }
 }

@@ -2,8 +2,6 @@ package com.bank.greenway.entity;
 
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
-
 @Entity
 @Table(name = "transaction")
 public class Transaction {
@@ -19,8 +17,6 @@ public class Transaction {
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
     private Account account_to;
 
-    private LocalDate date;
-
     public Long getId() {
         return id;
     }
@@ -29,7 +25,7 @@ public class Transaction {
         this.id = id;
     }
 
-    public double getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
@@ -53,20 +49,11 @@ public class Transaction {
         this.account_to = account_to;
     }
 
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
     public Transaction() {}
 
-    public Transaction(Integer amount, Account account_from, Account account_to, LocalDate date) {
+    public Transaction(Integer amount, Account account_from, Account account_to) {
         this.amount = amount;
         this.account_from = account_from;
         this.account_to = account_to;
-        this.date = date;
     }
 }

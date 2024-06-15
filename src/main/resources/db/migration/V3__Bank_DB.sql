@@ -15,6 +15,5 @@ CREATE TABLE Transaction(
     account_from_id  int8,
     account_to_id  int8,
     FOREIGN KEY (account_from_id) REFERENCES account(id),
-    FOREIGN KEY (account_to_id) REFERENCES account(id),
-    date    DATE
+    FOREIGN KEY (account_to_id) REFERENCES account(id)
 );

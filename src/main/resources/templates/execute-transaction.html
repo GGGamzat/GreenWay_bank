@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form method="post">
+        <input type="number" name="amount" placeholder="Сколько">
+        <input type="number" name="account_from" placeholder="От кого">
+        <input type="number" name="account_to" placeholder="Кому">
+
+        <input type="hidden" name="_csrf" value="${_csrf.token}">
+        <button type="submit">Перевести</button>
+    </form>
+</body>
+</html>

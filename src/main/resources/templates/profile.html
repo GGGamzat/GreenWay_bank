@@ -2,15 +2,30 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title th:text="${firstname}"></title>
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" type="text/css"/>
 </head>
 <body>
-    <p th:text="${firstname}"></p>
-    <p th:text="${lastname}"></p>
-    <p th:text="${age}"></p>
-    <p th:text="${email}"></p>
-    <p th:text="${role}"></p>
-
-    <a th:href="@{/logout}">Выйти</a>
+    <div class="wrapper">
+        <header th:insert="blocks/header :: header" class="header"></header>
+        <main>
+            <div class="profile_block pb">
+                <div class="block_info">
+                    <div class="main__info">
+                        <img th:src="@{/images/default-avatar.png}" class="avatar">
+                        <div class="name">
+                            <span th:text="${lastname}"></span>
+                            <span th:text="${firstname}"></span>
+                            <a th:href="@{/logout}">Выйти</a>
+                        </div>
+                    </div>
+                    <div class="all__info">
+                        <p th:text="'Возраст: ' + ${age}"></p>
+                        <p th:text="'Почта: ' + ${email}"></p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

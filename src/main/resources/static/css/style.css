@@ -112,3 +112,50 @@ textarea {
 .card span {
     font-size: 30px;
 }
+
+/* Profile */
+
+.profile_block {
+    position: relative;
+    margin: 0 auto;
+    height: 485px;
+    width: 730px;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+}
+
+.pb {
+    margin-top: 45px;
+}
+
+.block_info {
+    position: absolute;
+    margin: 50px 74px;
+}
+
+.main__info {
+    display: flex;
+}
+
+.avatar {
+    height: 270px;
+    width: 270px;
+    border-radius: 20px;
+}
+
+.name {
+    margin-left: 48px;
+}
+
+.name span {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.all__info {
+}
+
+.all__info p {
+    margin-top: 12px;
+    font-size: 20px;
+}

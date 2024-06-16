@@ -113,6 +113,73 @@ textarea {
     font-size: 30px;
 }
 
+
+
+
+
+
+
+/* Login */
+
+.form_login_block {
+    position: relative;
+    margin: 0 auto;
+    height: 349px;
+    width: 730px;
+    border-radius: 20px;
+    background-color: #D9D9D9;
+}
+
+.lb {
+    margin-top: 45px;
+}
+
+.form_login {
+    position: absolute;
+    margin: 31px 105px;
+}
+
+.form_login div {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.form_login input {
+    height: 50px;
+    width: 520px;
+    border-radius: 5px;
+    border: solid 1px #000;
+}
+
+.login_input_1 {
+    margin-top: 38px;
+}
+
+.login_input_2 {
+    margin-top: 19px;
+}
+
+.form_login button {
+    margin-top: 44px;
+    height: 50px;
+    width: 520px;
+    font-size: 18px;
+    font-weight: 500;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    background-color: #368C18;
+}
+
+
+
+
+
+
+
+
+
 /* Profile */
 
 .profile_block {

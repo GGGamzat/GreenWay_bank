@@ -1,20 +1,29 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Authorization</title>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" type="text/css"/>
 </head>
 <body>
-<div th:if="${param.error}">
-    Invalid username and password.
-</div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-<h1>Login page</h1>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <div class="wrapper">
+        <header th:insert="blocks/header :: header" class="header"></header>
+        <main>
+            <div class="form_login_block lb">
+                <form th:action="@{/login}" class="form_login" method="post">
+                    <div>Вход в GreenWay банк</div>
+                    <input class="login_input_1" type="text" name="username" placeholder="Введите имя"/>
+                    <input class="login_input_2" type="password" name="password" placeholder="Введите пароль"/>
+                    <button type="submit">Войти</button>
+                </form>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

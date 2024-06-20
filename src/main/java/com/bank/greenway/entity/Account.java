@@ -21,6 +21,14 @@ public class Account {
     @JoinColumn(name = "usr_id", nullable = false)
     private User user;
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Integer getNumber() {
         return number;
     }
@@ -37,11 +45,11 @@ public class Account {
         this.balance = balance;
     }
 
-    public User getCustomer() {
+    public User getUser() {
         return user;
     }
 
-    public void setCustomer(User user) {
+    public void setUser(User user) {
         this.user = user;
     }
 

@@ -8,11 +8,7 @@ import com.bank.greenway.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.bind.annotation.*;
 import java.util.Random;
 
 @Controller
@@ -55,6 +51,15 @@ public class BankController {
         transaction.setAccount_To(account_from);
         transaction.setAccount_To(account_to);
         transactionRepository.save(transaction);
+
+        transaction = transactionRepository.save(transaction);
+        Account sender = accountRepository.findById(transaction.getAccount_From().getId()).orElseThrow();
+        Account recipient = accountRepository.findById(transaction.getAccount_To().getId()).orElseThrow();
+
+        sender.setBalance(transaction.getAccount_From().getBalance() - transaction.getAmount());
+        accountRepository.save(sender);
+        recipient.setBalance(transaction.getAccount_To().getBalance() + transaction.getAmount());
+        accountRepository.save(recipient);
         return "redirect:/home";
     }
 }

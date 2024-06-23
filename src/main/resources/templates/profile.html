@@ -23,6 +23,19 @@
                         <p th:text="'Возраст: ' + ${age}"></p>
                         <p th:text="'Почта: ' + ${email}"></p>
                     </div>
+
+                    <div class="accounts_block">
+                        <p>Счета:</p>
+                        <a th:href="@{/bank/open-account}" class="accounts_block__btn">+</a>
+                        <div class="accounts" th:each="account : ${accounts}">
+                            <div class="account_card">
+                                <div class="account_card__container">
+                                    <p th:text="${account.balance} + '₽'"></p>
+                                    <a th:text="${account.number}" th:href="'/bank/account/' + ${account.number}"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </main>

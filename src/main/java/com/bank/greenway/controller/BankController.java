@@ -8,7 +8,11 @@ import com.bank.greenway.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Random;
 
 @Controller
@@ -61,5 +65,15 @@ public class BankController {
         recipient.setBalance(transaction.getAccount_To().getBalance() + transaction.getAmount());
         accountRepository.save(recipient);
         return "redirect:/home";
+    }
+
+    @GetMapping("/account/{number}")
+    public String get_account(@PathVariable(value="number") Integer number, Model model) {
+
+        Optional<Account> account = accountRepository.findByNumber(number);
+        ArrayList<Account> res = new ArrayList<>();
+        account.ifPresent(res::add);
+        model.addAttribute("account", res);
+        return "account";
     }
 }

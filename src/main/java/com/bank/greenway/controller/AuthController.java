@@ -3,6 +3,7 @@ package com.bank.greenway.controller;
 import com.bank.greenway.entity.Account;
 import com.bank.greenway.entity.Article;
 import com.bank.greenway.entity.User;
+import com.bank.greenway.repository.AccountRepository;
 import com.bank.greenway.repository.UserRepository;
 import com.bank.greenway.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class AuthController {
 
     private UserService userService;
     private UserRepository userRepository;
+    private AccountRepository accountRepository;
 
     @Autowired
     public AuthController(UserService userService) {
@@ -66,6 +68,7 @@ public class AuthController {
         model.addAttribute("age", user.getAge());
         model.addAttribute("email", user.getEmail());
         model.addAttribute("role", user.getRole());
+        model.addAttribute("accounts", user.getAccounts());
 
         return "profile";
     }

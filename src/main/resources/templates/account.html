@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div th:each="el : ${account}">
+        <h1 th:text="${el.number}"></h1>
+        <p th:text="${el.balance}"></p>
+    </div>
+</body>
+</html>

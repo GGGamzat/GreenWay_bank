@@ -37,7 +37,7 @@ public class AuthController {
     }
 
     @PostMapping("/registration")
-    public String registerUser(@RequestParam(required = true, defaultValue = "!@") String username,
+    public String registerUser(
                                @RequestParam(required = true, defaultValue = "!@") String firstname,
                                @RequestParam(required = true, defaultValue = "!@") String lastname,
                                @RequestParam(required = true, defaultValue = "!@") Integer age,
@@ -46,6 +46,7 @@ public class AuthController {
         if(!(firstname.equals("!@") & password.equals("!@"))) {
             System.out.println(firstname + " " + lastname + " " + " " + password);
             User user = new User();
+            String username = firstname;
             user.setUsername(username);
             user.setFirstName(firstname);
             user.setLastName(lastname);
@@ -59,6 +60,8 @@ public class AuthController {
         }
         return "redirect:/home";
     }
+
+//    @RequestParam(required = true, defaultValue = "!@") String username,
 
     @GetMapping("/profile")
     public String profile(@AuthenticationPrincipal User user, Model model) {

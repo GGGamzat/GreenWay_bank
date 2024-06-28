@@ -52,7 +52,7 @@ public class BankController {
         Transaction transaction = new Transaction(amount, account_from, account_to);
 
         transaction.setAmount(amount);
-        transaction.setAccount_To(account_from);
+        transaction.setAccount_From(account_from);
         transaction.setAccount_To(account_to);
         transactionRepository.save(transaction);
 

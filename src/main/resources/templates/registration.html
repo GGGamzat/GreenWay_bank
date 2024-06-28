@@ -1,21 +1,31 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Registration</title>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" type="text/css"/>
 </head>
 <body>
-<div th:if="${param.error}">
-    Some strange errors!
-</div>
-<h1>Registration page</h1>
-<form th:action="@{/registration}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> First Name : <input type="text" name="firstname"/> </label></div>
-    <div><label> Last Name : <input type="text" name="lastname"/> </label></div>
-    <div><label> Email : <input type="text" name="email"/> </label></div>
-    <div><label> Age : <input type="number" name="age"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+    <div th:if="${param.error}">
+        Some strange errors!
+    </div>
+    <div class="wrapper">
+        <header th:insert="blocks/header :: header" class="header"></header>
+        <main>
+            <div class="form_register_block rb">
+                <form th:action="@{/registration}" class="form_auth" method="post">
+                    <div>Регистрация в GreenWay банк</div>
+
+                    <input class="auth_input_1" type="text" name="firstname" placeholder="Имя"/>
+                    <input class="auth_input" type="text" name="lastname" placeholder="Фамилия"/>
+                    <input class="auth_input" type="text" name="email" placeholder="Почта"/>
+                    <input class="auth_input" type="number" name="age" placeholder="Возраст"/>
+                    <input class="auth_input" type="password" name="password" placeholder="Пароль"/>
+
+                    <button type="submit">Зарегистрироваться</button>
+                </form>
+            </div>
+        </main>
+    </div>
 </body>
 </html>

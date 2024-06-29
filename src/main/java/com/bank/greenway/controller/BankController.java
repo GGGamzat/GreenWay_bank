@@ -48,22 +48,30 @@ public class BankController {
     }
 
     @PostMapping("/execute-transaction")
-    public String execute_transaction_post(@RequestParam Integer amount, @RequestParam Account account_from, @RequestParam Account account_to) {
+    public String execute_transaction_post(@RequestParam Integer amount, @RequestParam Account account_from, @RequestParam Account account_to, Model model) {
         Transaction transaction = new Transaction(amount, account_from, account_to);
 
-        transaction.setAmount(amount);
-        transaction.setAccount_From(account_from);
-        transaction.setAccount_To(account_to);
-        transactionRepository.save(transaction);
+        if (transaction.getAccount_From().getBalance() >= transaction.getAmount()) {
 
-        transaction = transactionRepository.save(transaction);
-        Account sender = accountRepository.findById(transaction.getAccount_From().getId()).orElseThrow();
-        Account recipient = accountRepository.findById(transaction.getAccount_To().getId()).orElseThrow();
+            transaction.setAmount(amount);
+            transaction.setAccount_From(account_from);
+            transaction.setAccount_To(account_to);
+            transactionRepository.save(transaction);
 
-        sender.setBalance(transaction.getAccount_From().getBalance() - transaction.getAmount());
-        accountRepository.save(sender);
-        recipient.setBalance(transaction.getAccount_To().getBalance() + transaction.getAmount());
-        accountRepository.save(recipient);
+            Account sender = accountRepository.findById(transaction.getAccount_From().getId()).orElseThrow();
+            Account recipient = accountRepository.findById(transaction.getAccount_To().getId()).orElseThrow();
+
+            sender.setBalance(transaction.getAccount_From().getBalance() - transaction.getAmount());
+            accountRepository.save(sender);
+            recipient.setBalance(transaction.getAccount_To().getBalance() + transaction.getAmount());
+            accountRepository.save(recipient);
+        }
+        else {
+            String error = "Недостаточно средств на счету";
+            model.addAttribute("error", error);
+            return "execute-transaction";
+        }
+
         return "redirect:/home";
     }
 

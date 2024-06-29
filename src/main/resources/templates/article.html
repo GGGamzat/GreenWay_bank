@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-  <link href="static/css/style.css" rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+    <link rel="stylesheet" th:href="@{/static/css/style.css}" type="text/css"/>
 </head>
 <body>
     <div class="wrapper">
         <header th:insert="blocks/header :: header" class="header"></header>
 
-      <main class="main">
-        <div class="main_container">
-            <div class="card__detail" th:each="el : ${article}">
-                <h1 th:text="${el.title}"></h1>
-                <p th:text="${el.text}"></p>
+        <main class="main">
+            <div class="main_container">
+                <div class="card__detail" th:each="el : ${article}">
+                    <h1 th:text="${el.title}"></h1>
+                    <p th:text="${el.text}"></p>
+                </div>
             </div>
-        </div>
-      </main>
+        </main>
     </div>
 </body>
 </html>
